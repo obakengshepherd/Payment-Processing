@@ -2,7 +2,7 @@
 
 ---
 
-## Functional Requirements
+## Functional Requirements.
 
 **FR-01** — The system shall allow a merchant to create a payment by submitting an amount,
 currency, customer reference, and idempotency key, receiving a payment ID in response.
