@@ -147,16 +147,16 @@ and webhook configuration.
 
 ---
 
-## Component Responsibilities Summary
+## Component Responsibilities Summary.
 
-| Component              | Responsibility                                            | Communicates Via       |
-|------------------------|-----------------------------------------------------------|------------------------|
-| Load Balancer          | TLS termination, routing, health checks                   | HTTPS                  |
-| Payment API            | Auth, idempotency, validation, routing                    | HTTP (internal)        |
-| AuthorisationService   | Payment creation, auth phase, expiry management           | PostgreSQL + Kafka     |
-| CaptureService         | Capture validation, state transition, settlement trigger  | PostgreSQL + Kafka     |
-| RefundService          | Refund validation, state transition, amount check         | PostgreSQL + Kafka     |
-| SettlementService      | Async settlement from Kafka consumer                      | Kafka + PostgreSQL     |
-| Redis                  | Idempotency key store                                     | In-memory              |
-| PostgreSQL             | All payment state, event log, merchant data               | TCP                    |
-| Kafka                  | Payment lifecycle event stream                            | Kafka protocol         |
+| Component            | Responsibility                                           | Communicates Via   |
+| -------------------- | -------------------------------------------------------- | ------------------ |
+| Load Balancer        | TLS termination, routing, health checks                  | HTTPS              |
+| Payment API          | Auth, idempotency, validation, routing                   | HTTP (internal)    |
+| AuthorisationService | Payment creation, auth phase, expiry management          | PostgreSQL + Kafka |
+| CaptureService       | Capture validation, state transition, settlement trigger | PostgreSQL + Kafka |
+| RefundService        | Refund validation, state transition, amount check        | PostgreSQL + Kafka |
+| SettlementService    | Async settlement from Kafka consumer                     | Kafka + PostgreSQL |
+| Redis                | Idempotency key store                                    | In-memory          |
+| PostgreSQL           | All payment state, event log, merchant data              | TCP                |
+| Kafka                | Payment lifecycle event stream                           | Kafka protocol     |
