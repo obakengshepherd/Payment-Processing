@@ -93,7 +93,7 @@ idempotency key is submitted multiple times, returning the original result on du
 
 ---
 
-## Data Flow
+## Data Flow.
 
 ### Payment Lifecycle — Happy Path
 
