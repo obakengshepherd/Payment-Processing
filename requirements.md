@@ -46,27 +46,32 @@ idempotency key is submitted multiple times, returning the original result on du
 ## Non-Functional Requirements
 
 ### Availability
+
 - **NFR-01** — The system shall maintain 99.9% uptime.
 - **NFR-02** — The settlement pipeline may have a processing delay of up to 24 hours in
   degraded mode without violating the system's durability guarantees.
 
 ### Latency
+
 - **NFR-03** — `POST /payments` (create + authorise) p99 ≤ 300ms.
 - **NFR-04** — `POST /payments/{id}/capture` p99 ≤ 200ms.
 - **NFR-05** — `GET /payments/{id}` p99 ≤ 50ms.
 
 ### Throughput
+
 - **NFR-06** — The system shall sustain 200 TPS at peak load.
 - **NFR-07** — The settlement pipeline shall process captured payments within 24 hours
   under normal operating conditions.
 
 ### Durability
+
 - **NFR-08** — Zero tolerance for committed payment data loss. Any payment that has received
   a creation success response must be permanently recorded.
 - **NFR-09** — The payment event log must be complete and uneditable. No event record may
   be deleted or modified after creation.
 
 ### Consistency
+
 - **NFR-10** — Payment state transitions are strongly consistent. A read immediately after
   a transition must reflect the new state.
 - **NFR-11** — An idempotency key submitted within its 24-hour TTL window must always
@@ -74,17 +79,17 @@ idempotency key is submitted multiple times, returning the original result on du
 
 ---
 
-## Estimated Traffic
+## Estimated Traffic.
 
-| Metric                         | Estimate                         |
-|--------------------------------|----------------------------------|
-| Transactions per day           | 50,000                           |
-| Peak transaction rate          | 200 TPS                          |
-| Payment events written per day | ~250,000 (5 per payment avg)     |
-| Kafka events per day           | ~250,000                         |
-| Active idempotency keys in Redis| ~4,320,000 (200 TPS × 86,400s × 24h TTL) |
-| Refund rate (estimated 1%)     | ~500 refunds/day                 |
-| Average payment payload size   | ~1KB                             |
+| Metric                           | Estimate                                 |
+| -------------------------------- | ---------------------------------------- |
+| Transactions per day             | 50,000                                   |
+| Peak transaction rate            | 200 TPS                                  |
+| Payment events written per day   | ~250,000 (5 per payment avg)             |
+| Kafka events per day             | ~250,000                                 |
+| Active idempotency keys in Redis | ~4,320,000 (200 TPS × 86,400s × 24h TTL) |
+| Refund rate (estimated 1%)       | ~500 refunds/day                         |
+| Average payment payload size     | ~1KB                                     |
 
 ---
 
