@@ -44,9 +44,10 @@ operational problems for the merchant.
 
 ---
 
-## Section 3 — Scope of This Implementation
+## Section 3 — Scope of This Implementation.
 
 **In scope:**
+
 - Payment creation with idempotency key enforcement
 - Authorisation step (simulated external processor call)
 - Capture step with partial capture support (capture up to authorised amount)
@@ -59,6 +60,7 @@ operational problems for the merchant.
 - Webhook event publishing stub for merchant notification
 
 **Out of scope:**
+
 - Integration with real card networks or banking APIs
 - 3DS / strong customer authentication flows
 - Recurring billing or subscription management
