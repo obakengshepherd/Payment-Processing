@@ -2,7 +2,7 @@
 
 ---
 
-## Section 1 — The Problem
+## Section 1 — The Problem.
 
 A payment gateway sits between a customer's intent to pay and the actual movement of funds.
 It must authorise the payment (verify the funds exist and are available), capture it (claim
